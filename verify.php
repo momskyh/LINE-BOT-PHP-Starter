@@ -1,7 +1,8 @@
 <?php
 $access_token = 'h6qzlIg7k7SdqLjiq4CCa+AuVQpCGoPF+cg78G+HlBrBH1v6u2D/SP6slIAsydQAqqUoFR3Z5XVRlh4CnTULSDEkZmeUwXHUhTcu2N+XzgUTQVWW4oOrlMQnoIORLgV6H52Ctn3cEuIOrPUJbXWDTQdB04t89/1O/w1cDnyilFU=';
 
-$url = 'https://api.line.me/v1/oauth/verify';
+//$url = 'https://api.line.me/v1/oauth/verify';
+$url = 'https://api.line.me/oauth2/v2.1/verify';
 
 $headers = array('Authorization: Bearer ' . $access_token);
 
