@@ -11,37 +11,11 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
-if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
-  $arrPostData = array();
-  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
-}else if($arrJson['events'][0]['message']['text'] == "ขอกลุ่ม"){
-  $arrPostData = array();
-  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี GROUP ID คุณคือ ".$arrJson['events'][0]['source']['groupId'];
-}else if($arrJson['events'][0]['message']['text'] == "ขอกลุ่ม2"){
-  $arrPostData = array();
-  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี GROUP ID คุณคือ ".$arrJson['events'][0]['source']['groupId'];
-}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
-  $arrPostData = array();
-  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
-  $arrPostData = array();
-  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
-}else{
-  $arrPostData = array();
-  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
-}
+$arrPostData = array();
+$arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
+$arrPostData['messages'][0]['type'] = "text";
+$arrPostData['messages'][0]['text'] = "สวัสดี GROUP ID คุณคือ ".$arrJson['events'][0]['source']['groupId'];
+
  
  
 $ch = curl_init();
