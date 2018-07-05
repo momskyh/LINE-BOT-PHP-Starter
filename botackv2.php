@@ -32,12 +32,11 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
  
 }else if($arrJson['events'][0]['message']['text'] == "ขอกลุ่ม4"){
   include("botpush2.php");
-  $userId = $arrJson['events'][0]['source']['userId']
   $arrPostData = array();
   $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี GROUP ID คุณคือ ".$userId;
- 
+  $arrPostData['messages'][0]['text'] = "สวัสดี GROUP ID คุณคือ ".$arrJson['events'][0]['source']['userId'] "คุณชื่อ ".$arrJson['events'][0]['source']['displayName'];
+  
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
