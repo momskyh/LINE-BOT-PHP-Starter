@@ -28,7 +28,9 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
   $result = curl_exec($ch);
   curl_close($ch);
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  include("botpush2.php");
+  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
+  $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$result;
 }
