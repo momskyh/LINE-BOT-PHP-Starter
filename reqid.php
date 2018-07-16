@@ -32,6 +32,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "New User Line infor => ".$result ;
+  $arrPostData['messages'][0]['text'] = "Message => ".$arrJson['events'][0]['message']['text'] ;
   // "Message ".$arrJson['events'][0]['source']['messages'];
 }
  
