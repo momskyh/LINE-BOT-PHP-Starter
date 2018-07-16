@@ -16,7 +16,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
-}elseelse{
+}else{
   $arrPostData = array();
   $userId = $arrJson['events'][0]['source']['userId'];
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
