@@ -15,9 +15,9 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+  $arrPostData['messages'][0]['text'] = "สวัสดี ข้อความ คุณคือ ".$arrJson['events'][0]['message']['text'];
  
-}else if($arrJson['events'][0]['message']['text'] == "ขอชื่อ"){
+}else{
   $arrPostData = array();
   $userId = $arrJson['events'][0]['source']['userId'];
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
@@ -28,38 +28,11 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
   $result = curl_exec($ch);
   curl_close($ch);
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$result;
- 
-}else if($arrJson['events'][0]['message']['text'] == "ขอกลุ่ม"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี GROUP ID คุณคือ ".$arrJson['events'][0]['source']['groupId'];
-}else if($arrJson['events'][0]['message']['text'] == "ขอกลุ่ม2"){
-  include("botpush.php");
-}else if($arrJson['events'][0]['message']['text'] == "ขอกลุ่ม3"){
   include("botpush2.php");
-  $arrPostData = array();
   $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี GROUP ID คุณคือ ".$arrJson['events'][0]['source']['groupId'];
-}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
-}else{
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+  $arrPostData['messages'][0]['text'] = "New User Line infor => ".$result ."Message => ".$arrJson['events'][0]['message']['text'] ;
+  // "Message ".$arrJson['events'][0]['source']['messages'];
 }
  
  
