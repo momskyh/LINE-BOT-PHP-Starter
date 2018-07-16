@@ -31,7 +31,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   include("botpush2.php");
   $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "New User Line infor => ".$result, "Message ".$arrJson['events'][0]['source']['messages'];;
+  $arrPostData['messages'][0]['text'] = "New User Line infor => ".$result "Message ".$arrJson['events'][0]['source']['messages'];
 }
  
  
