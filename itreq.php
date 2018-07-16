@@ -16,7 +16,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
-}else{
+}elseelse{
   $arrPostData = array();
   $userId = $arrJson['events'][0]['source']['userId'];
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
@@ -27,9 +27,11 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
   $result = curl_exec($ch);
   curl_close($ch);
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  include("botpush2.php");
+  $arrPostData['to'] = "Uf77dfcdeb8e04bca8a90ad721d8104a9";
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$result;
+  $arrPostData['messages'][0]['text'] = "New User Line infor => ".$result ."Message => ".$arrJson['events'][0]['message']['text'] ;
+  // "Message ".$arrJson['events'][0]['source']['messages'];
 }
  
 $ch = curl_init();
