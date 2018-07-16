@@ -15,7 +15,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ข้อความ คุณคือ ".$arrJson['events'][0]['source']['messages']['text'];
+  $arrPostData['messages'][0]['text'] = "สวัสดี ข้อความ คุณคือ ".$arrJson['events'][0]['message']['text'];
  
 }else{
   $arrPostData = array();
