@@ -16,8 +16,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
- 
-}else if($arrJson['events'][0]['message']['text'] == "ขอชื่อ"){
+}else{
   $arrPostData = array();
   $userId = $arrJson['events'][0]['source']['userId'];
   $url = 'https://api.line.me/v2/bot/profile/'.$userId;
@@ -31,33 +30,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$result;
-}else if($arrJson['events'][0]['message']['text'] == "regis"){
-  $arrPostData = array();
-  $userId = $arrJson['events'][0]['source']['userId'];
-  $url = 'https://api.line.me/v2/bot/profile/'.$userId;
-  $headers = array('Authorization: Bearer ' . $strAccessToken);
-  $ch = curl_init($url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  $result = curl_exec($ch);
-  curl_close($ch);
-  include("botpush2.php");
-  $arrPostData['to'] = "Ud5680fffd4957a5bc2af997beabc72ba";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "New User Line infor => ".$result ."Message => ".$arrJson['events'][0]['message']['text'] ;
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
-}else{
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
 }
- 
  
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
