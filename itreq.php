@@ -40,7 +40,6 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
    }else{
    }
 }
-}
  
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
