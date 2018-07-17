@@ -10,12 +10,13 @@ $strUrl = "https://api.line.me/v2/bot/message/reply";
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
+$newstest= file_get_contents("news2018.json");
  
 if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ข้อความ คุณคือ ".$arrJson['events'][0]['message']['text'];
+  $arrPostData['messages'][0]['text'] = $newstest;
  
 }else{
   $arrPostData = array();
