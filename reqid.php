@@ -15,8 +15,8 @@ $newstest= file_get_contents("news2018.json");
 if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = $newstest;
+  $arrPostData['messages'][0]['type'] = "flex";
+  $arrPostData['messages'][0]['flex'] = $newstest;
  
 }else{
   $arrPostData = array();
