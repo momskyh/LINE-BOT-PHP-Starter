@@ -20,8 +20,6 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
  $messageback = $arrJson['events'][0]['message']['text'];
  $msgback = explode(" ", $messageback);
    if($msgback[0] == "regis"){
-      $messageback = $arrJson['events'][0]['message']['text'];
-      $msgback = explode(" ", $messageback);
       $arrPostData = array();
       $userId = $arrJson['events'][0]['source']['userId'];
       $url = 'https://api.line.me/v2/bot/profile/'.$userId;
