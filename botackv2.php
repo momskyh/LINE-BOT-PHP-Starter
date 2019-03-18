@@ -56,10 +56,30 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
 }else{
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+ $messageback = $arrJson['events'][0]['message']['text'];
+	 $msgback = explode(" ", $messageback);
+		if($msgback[0] == "regis"){
+		  $arrPostData = array();
+		  $userId = $arrJson['events'][0]['source']['userId'];
+		  $url = 'https://api.line.me/v2/bot/profile/'.$userId;
+		  $headers = array('Authorization: Bearer ' . $strAccessToken);
+		  $ch = curl_init($url);
+		  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		  $result = curl_exec($ch);
+		  curl_close($ch);
+		  include("botpush2.php");
+		  $arrPostData['to'] = "Uf77dfcdeb8e04bca8a90ad721d8104a9";
+		  $arrPostData['messages'][0]['type'] = "text";
+		  $arrPostData['messages'][0]['text'] = "New User Line infor => ".$result ."รหัสพนักงาน => ".$msgback[1];
+		  // "Message ".$arrJson['events'][0]['source']['messages'];
+		}else{
+     $arrPostData = array();
+     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+     $arrPostData['messages'][0]['type'] = "text";
+     $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+			}
 }
  
  
